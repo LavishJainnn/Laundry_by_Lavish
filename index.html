@@ -268,12 +268,22 @@
       const num = document.querySelector("#num1").value.trim();
 
       if(!name || !email || !num){
-        alert("Please fill all fields!");
+          const alertDiv = document.createElement("div");
+          alertDiv.className = "alert_red";
+          alertDiv.innerHTML = `<span>Order was not placed.</span>`;
+          bookEl.appendChild(alertDiv);
+          setTimeout(() => bookEl.removeChild(alertDiv), 3000);
+          console.log("FAILED...", error);
         return;
       }
 
       if(cart.length === 0){
-        alert("Please add at least one service to the cart!");
+          const alertDiv = document.createElement("div");
+          alertDiv.className = "alert_red";
+          alertDiv.innerHTML = `<span>Order was not placed.</span>`;
+          bookEl.appendChild(alertDiv);
+          setTimeout(() => bookEl.removeChild(alertDiv), 3000);
+          console.log("FAILED...", error);
         return;
       }
 
@@ -300,12 +310,12 @@
             btn.textContent = "+ Add Item";
           });
       }, function(error){
-          const alertDiv = document.createElement("div");
-          alertDiv.className = "alert_red";
-          alertDiv.innerHTML = `<span>Order was not placed.</span>`;
-          bookEl.appendChild(alertDiv);
-          setTimeout(() => bookEl.removeChild(alertDiv), 3000);
-          console.log("FAILED...", error);
+            const alertDiv = document.createElement("div");
+            alertDiv.className = "alert_red";
+            alertDiv.innerHTML = `<span>Order was not placed.</span>`;
+            bookEl.appendChild(alertDiv);
+            setTimeout(() => bookEl.removeChild(alertDiv), 3000);
+            console.log("FAILED...", error);
       });
     });
   </script>
