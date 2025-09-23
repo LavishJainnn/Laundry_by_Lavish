@@ -300,7 +300,11 @@
             btn.textContent = "+ Add Item";
           });
       }, function(error){
-          alert("Oops! Something went wrong.");
+          const alertDiv = document.createElement("div");
+          alertDiv.className = "alert_red";
+          alertDiv.innerHTML = `<span>Order was not placed.</span>`;
+          bookEl.appendChild(alertDiv);
+          setTimeout(() => bookEl.removeChild(alertDiv), 3000);
           console.log("FAILED...", error);
       });
     });
