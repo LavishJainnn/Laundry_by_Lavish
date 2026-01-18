@@ -277,10 +277,28 @@
         return;
       }
 
+      const totalAmount = cart.reduce((sum, item) => sum + parseFloat(item.price || 0), 0);
+
+      const cartItemsText = cart.map((item, index) => 
+        `${index + 1}. ${item.name} - $${item.price}`
+      ).join('\n');
+
+      const orderId = 'ORD' + Date.now();
+
+      const bookingDate = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
       emailjs.send("service_sav8kzh", "template_td12r8c", {
           user_name: name,
           user_email: email,
-          message: "Your booking has been confirmed! Thank you for choosing us 🚀"
+          user_phone: num,
+          cart_items: cartItemsText,
+          total_amount: totalAmount.toFixed(2),
+          order_id: orderId,
+          booking_date: bookingDate
       })
       .then(function(response){
           console.log("SUCCESS!", response.status, response.text);
