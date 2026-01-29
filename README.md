@@ -29,13 +29,8 @@ Live Demo: https://laundry-by-lavish.netlify.app/
 
 --> Project Structure
 
-Laundry-Hero/
-│
-├── index.html
-├── index.css
-├── /images
-│ └── hero.png
-└── README.md
+<img width="162" height="174" alt="image" src="https://github.com/user-attachments/assets/cd4d62a8-86a9-4394-9b45-b877102754dd" />
+
 
 
 --> How It Works
