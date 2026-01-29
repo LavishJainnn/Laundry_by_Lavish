@@ -285,7 +285,7 @@
       if(cart.length === 0){
           const alertDiv = document.createElement("div");
           alertDiv.className = "alert_red";
-          alertDiv.innerHTML = `<span>Order was not placed.</span>`;
+          alertDiv.innerHTML = `<span>No items present.</span>`;
           bookEl.appendChild(alertDiv);
           setTimeout(() => bookEl.removeChild(alertDiv), 3000);
           console.log("FAILED...", error);
@@ -325,6 +325,7 @@
           setTimeout(() => bookEl.removeChild(alertDiv), 3000);
 
           cart = [];
+          form.reset();
           renderCart();
 
           document.querySelectorAll(".rm_button").forEach(btn => {
